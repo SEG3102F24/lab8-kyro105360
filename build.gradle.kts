@@ -25,10 +25,12 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	implementation("com.graphql-java-kickstart:graphql-java-tools:11.1.0")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework:spring-webflux")
 	testImplementation("org.springframework.graphql:spring-graphql-test")
 	testImplementation("org.springframework.security:spring-security-test")
+	
 }
 
 kotlin {
@@ -40,3 +42,4 @@ kotlin {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
