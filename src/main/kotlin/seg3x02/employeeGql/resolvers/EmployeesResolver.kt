@@ -16,12 +16,12 @@ class EmployeesResolver : GraphQLQueryResolver, GraphQLMutationResolver {
     private lateinit var employeesRepository: EmployeesRepository
 
     // Query to get all employees
-    fun employees(): List<Employee> {
+    fun getEmployees(): List<Employee> {
         return employeesRepository.findAll()
     }
 
     // Query to get a single employee by ID
-    fun employee(id: UUID): Employee? {
+    fun getEmployee(id: UUID): Employee? {
         return employeesRepository.findById(id).orElse(null)
     }
 
@@ -30,9 +30,9 @@ class EmployeesResolver : GraphQLQueryResolver, GraphQLMutationResolver {
         val employee = Employee(
             id = UUID.randomUUID(),
             name = input.name,
-            position = input.position,
-            department = input.department,
-            salary = input.salary
+            position = input.position ?: "Unspecified",
+            department = input.department ?: "Unspecified",
+            salary = input.salary ?: 0.0
         )
         return employeesRepository.save(employee)
     }
